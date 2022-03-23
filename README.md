@@ -39,3 +39,21 @@ might change in a later version due to obvious reasons.
 ## Installation
 
 ## Usage
+
+```
+usage: zfsexporter [-h] [-f] [--uid UID] [--gid GID] [--chroot CHROOT] [--pidfile PIDFILE] [--loglevel LOGLEVEL] [--logfile LOGFILE] [--port PORT] [--interval INTERVAL]
+
+ZFS exporter daemon
+
+optional arguments:
+  -h, --help           show this help message and exit
+  -f, --foreground     Do not daemonize - stay in foreground and dump debug information to the terminal
+  --uid UID            User ID to impersonate when launching as root
+  --gid GID            Group ID to impersonate when launching as root
+  --chroot CHROOT      Chroot directory that should be switched into
+  --pidfile PIDFILE    PID file to keep only one daemon instance running
+  --loglevel LOGLEVEL  Loglevel to use (debug, info, warning, error, critical). Default: error
+  --logfile LOGFILE    Logfile that should be used as target for log messages
+  --port PORT          Port to listen on
+  --interval INTERVAL  Interval in seconds in which data is gathered
+```
