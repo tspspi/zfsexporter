@@ -11,6 +11,13 @@ specified scrape interval. Note that this exporter does only scrape the filesyst
 properties at a configurable interval instead at the query time of the time
 series database itself.
 
+Since this exporter scrapes the output of the CLI tools it may break with
+any software update and might only work with particular versions of those
+tools. It has been tested on:
+
+* FreeBSD 11.2
+* FreeBSD 12.2
+
 ## Exported metrics
 
 * For each ZFS filesystem (```filesystem``` used as label):
@@ -41,6 +48,13 @@ The package can either be installed from PyPI
 
 ```
 pip install zfsexporter-tspspi
+```
+
+or form a package downloaded directly from the ```tar.gz``` or ```whl``` from
+the [releases](https://github.com/tspspi/gammacli/releases):
+
+```
+pip install zfsexporter-tspspi.tar.gz
 ```
 
 ## Usage
