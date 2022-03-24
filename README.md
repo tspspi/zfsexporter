@@ -7,10 +7,9 @@ package to do the main work of running the webservice and managing the gauges.
 It's just a wrapper that periodically calls the ```zfs list``` and ```zpool status```
 commands to gather information about the filesystems and the pools which is then
 provided on the specified TCP port where it's collected by Prometheus at the
-specified scrape interval. Note that this exporter does - against usual
-recommendations - also only scrapes the filesystem properties at a configurable
-interval instead at the query time of the time series database itself. This
-might change in a later version due to obvious reasons.
+specified scrape interval. Note that this exporter does only scrape the filesystem
+properties at a configurable interval instead at the query time of the time
+series database itself.
 
 ## Exported metrics
 
@@ -37,6 +36,12 @@ might change in a later version due to obvious reasons.
    * Free capacity (```zpool_capacityfree```)
 
 ## Installation
+
+The package can either be installed from PyPI
+
+```
+pip install zfsexporter-tspspi
+```
 
 ## Usage
 
