@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# PROVIDE: zfsexporter
+# REQUIRE: NETWORKING SERVERS
+
+# Simple Python ZFS exporter for Prometheus
+#
+# This exporter uses the zfs command line utility
+# as well as the zpool CLI utility to gather data
+# about ZFS filesystems and pool status (zfs list
+# and zpool status are parsed). These are exported
+# via HTTP on the configured port.
+#
+# RC configuration variables:
+#
+#  zfsexporter_enable:="NO"
+#   When set to yes start service automatically
+#
+#  zfsexporter_loglevel:="error"
+#   Sets the loglevel of the exporter
+#
+#  zfsexporter_port:="9249"
+#   Sets the port at which the exporter should listen
+#
+# Copyright 2021, Thomas Spielauer
+
+. /etc/rc.subr
+
+name="zfsexporter"
+rcvar=zfsexporter_enable
+
+load_rc_config $name
+: ${zfsexporter_enable:="NO"}
+: ${zfsexporter_loglevel:="error"}
+: ${zfsexporter_port:="9249"}
+
+command=/usr/local/bin/zfsexporter
+command_args="--loglevel ${zfsexporter_loglevel} --port ${zfsexporter_port}"
+
+load_rc_config $name
+run_rc_command "$1"
+

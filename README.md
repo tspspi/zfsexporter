@@ -57,6 +57,19 @@ the [releases](https://github.com/tspspi/gammacli/releases):
 pip install zfsexporter-tspspi.tar.gz
 ```
 
+### ```rc.d``` init script
+
+In addition the exporter can be launched on boot and configured from ```rc.conf```
+using an ```rc.init``` script. A simple implementation can be found in the ```rcd/zfsexporter```
+script. This script can be copied to ```/usr/local/etc/rc.d/zfsexporter```. Then
+one can perform basic configuration from ```rc.conf```:
+
+```
+zfsexporter_enable="YES"
+zfsexporter_loglevel="error"
+zfsexporter_port="9249"
+```
+
 ## Usage
 
 ```
